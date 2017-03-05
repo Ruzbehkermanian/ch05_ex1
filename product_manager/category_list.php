@@ -6,8 +6,21 @@
         <tr>
             <th>Name</th>
             <th>&nbsp;</th>
-        </tr>        
+        </tr>
+
+	<!-- Code for Category names and delete buttons alongside it -->
+
+	<?php foreach ($categories as $category){ ?>
+	<tr>
+		<td><?php echo $category['categoryName']; ?></td>
+		<td><input type ="submit" value = "delete"> </td>
+
+	</tr>
+	<?php	} ?>
+
         <!-- add category rows here -->
+
+
     </table>
 
     <h2>Add Category</h2>
