@@ -13,7 +13,10 @@
 	<?php foreach ($categories as $category){ ?>
 	<tr>
 		<td><?php echo $category['categoryName']; ?></td>
-		<td><input type ="submit" value = "delete"> </td>
+		<td><form  action="index.php" method="post">
+		<input type="hidden" value="delete_category" name="action">
+		<input type="hidden" name="delete_c" value="<?php echo $category['categoryID']; ?>">
+		<input type ="submit" value = "delete"></form> </td>
 
 	</tr>
 	<?php	} ?>
@@ -28,18 +31,12 @@
 
     <h2>Add Category</h2>
 
-    <form method ="post">
+    <form action="index.php"  method ="post">
 
-    <input type="hidden" name="action" id="add_category">
-
-    <p>
-
+    <input type="hidden" name="action" value="add_category">
     <Label>Name : </label>
     <input type="text" name="category_name">
     <input type = "submit" value = "Add" >
-    
-    </p>
-
     </form>
 
     <!-- add code for form here -->

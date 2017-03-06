@@ -55,5 +55,30 @@ if ($action == 'list_products') {
   }  else if ($action == 'list_categories'){		// adding code to display the next page
     		$categories = get_categories();
 		include('category_list.php');
-	}    
+
+  }  else if($action == 'add_category')
+        {
+  	$category_name = filter_input(INPUT_POST, 'category_name');
+	if ($category_name == NULL) 
+	        {
+		$error = 'Name is invalid. Kindly try again';
+		include('view/error.php');
+		} else {
+			add_category($category_name);
+			header("Location: .?action=list_categories");
+			}
+
+	} else if ($action == 'delete_category') 
+
+	   {
+	   $category_id = filter_input(INPUT_POST, 'delete_c',  FILTER_VALIDATE_INT);
+	  if ($category_id == NULL){
+	  $error= "Invalid function";
+	  include("../errors/error.php");
+	  }else{
+	  delete_category($category_id);
+	   header("Location: .?action=list_categories");
+	   }
+}
+    
 ?>
